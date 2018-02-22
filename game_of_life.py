@@ -233,5 +233,6 @@ glider = [
 ]
 
 # choose initial layout (block, blinker, etc)
+hat.clear()
 game = Game(glider)
 game.play()
