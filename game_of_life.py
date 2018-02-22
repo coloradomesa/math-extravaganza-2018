@@ -147,7 +147,7 @@ class ColorLifeRule(LifeRule):
 #:::RULES END:::
 
 #Change rules here to one of the above
-SELECTED_RULE = ColorLifeRule
+SELECTED_RULE = LifeRule
         
 class Game:
     def __init__(self, ascii):
@@ -179,8 +179,19 @@ class Game:
     def play(self):
         while True:
             self.update()
-            time.sleep(1)
+            time.sleep(0.2)
 
+
+blank = [
+    "........",
+    "........",
+    "........",
+    "........",
+    "........",
+    "........",
+    "........",
+    "........"
+    ]
 block = [
     "........",
     ".xx.....",
@@ -200,7 +211,27 @@ blinker = [
     "........",
     "........",
     "........"]
+blink2 = [
+    "........",
+    "..xx....",
+    "..xx....",
+    "....xx..",
+    "....xx..",
+    "........",
+    "........",
+    "........"
+    ]
+glider = [
+    "..x.....",
+    "x.x.....",
+    ".xx.....",
+    "........",
+    "........",
+    "........",
+    "........",
+    "........"
+]
 
 # choose initial layout (block, blinker, etc)
-game = Game(blinker)
+game = Game(glider)
 game.play()
