@@ -11,6 +11,8 @@ from signal import pause
 import random
 loop = asyncio.get_event_loop()
 
+SNAKE_BODY_COLOR = [255,255,255] # R, G, B
+SNAKE_FOOD_COLOR = [255,0,0] # R, G, B
 
 class BodyCollideException(Exception):
     """Raised when snake's head collides with its own body"""
@@ -171,10 +173,10 @@ class SnakeGame:
     def _update_screen(self):
         """Re-draw all pixels on the screen after clearing"""
         self.hat.clear()
-        self.hat.set_pixel(self.snake.location[0], self.snake.location[1], 255, 255, 255)
+        self.hat.set_pixel(self.snake.location[0], self.snake.location[1], SNAKE_BODY_COLOR[0], SNAKE_BODY_COLOR[1], SNAKE_BODY_COLOR[2])
         for body in self.snake.body:
-            self.hat.set_pixel(int(body.location[0]), int(body.location[1]), 255, 255, 255)
-        self.hat.set_pixel(self.food[0], self.food[1], 255, 0, 0)
+            self.hat.set_pixel(int(body.location[0]), int(body.location[1]), SNAKE_BODY_COLOR[0], SNAKE_BODY_COLOR[1], SNAKE_BODY_COLOR[2])
+        self.hat.set_pixel(self.food[0], self.food[1], SNAKE_FOOD_COLOR[0], SNAKE_FOOD_COLOR[1], SNAKE_FOOD_COLOR[2])
 
     def run(self):
         """Run the game"""
